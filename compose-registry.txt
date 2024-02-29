@@ -1,0 +1,49 @@
+Docker compose::
+
+docker run mmumshad/simple-webapp
+docker run mongodb
+docker run redis:alpine
+docker run ansible
+
+->docker-compose.yml
+services:
+     web:
+        image: “mmumshad/simple-webapp"
+     database:
+        image: “mongodb“
+     messaging:
+        image: "redis:alpine“
+     orchestration:
+        image: “ansible“
+        
+docker-compose up
+
+docker run --links:
+-docker run -d --name=redis redis
+-docker run -d --name=db
+-docker run -d --name=vote –p 5000:80 --link redis:redis
+-docker run -d --name=result –p 5001:80 --link db:db
+-docker run -d --name=worker --link db:db --link redis:redis
+
+Docker compose - build
+Docker compose - versions
+
+
+Docker Registry::
+-Image  docker run nginx
+
+	image: docker.io/nginx/nginx
+	       Registry  User/ Image/
+	                 AccountRepository
+
+Private Registry:
+-docker login private-registry.io
+-docker run private-registry.io/apps/internal-app
+
+Deploy Private Registry:
+-docker run -d -p 5000:5000 --name registry registry:2
+-docker image tag my-image localhost:5000/my-image
+-docker push localhost:5000/my-image
+-docker pull localhost:5000/my-image
+-docker pull 192.168.56.100:5000/my-image  
+	                

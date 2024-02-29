@@ -1,0 +1,35 @@
+Docker commands:
+->Run – start a container
+  -docker run nginx
+  
+->ps – list containers
+  -docker ps
+  -docker ps -a
+
+->STOP – stop a container
+  -docker stop container_name
+  
+->Rm – Remove a container
+  -docker rm container_name
+  
+->images – List images
+  -docker images
+  
+->rmi – Remove images
+  -docker rmi image_name
+  
+->Pull – download an image
+  -docker run nginx
+  -docker pull nginx
+  
+->Append a command
+  -docker run ubuntu sleep 5
+  
+->Exec – execute a command
+  -docker exec distracted_mcclintock cat /etc/hosts
+  
+->Run – attach and detach
+  -docker run kodekloud/simple-webapp
+  -docker run –d kodekloud/simple-webapp
+  -docker attach a043d
+

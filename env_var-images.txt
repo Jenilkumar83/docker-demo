@@ -1,0 +1,52 @@
+Docker Environment Variables::
+
+->ENV Variables in Docker:
+  -docker run -e APP_COLOR=blue   simple-webapp-color
+  -docker run -e APP_COLOR=green simple-webapp-color
+  -docker run -e APP_COLOR=pink simple-webapp-color
+  
+->Inspect Environment Variable
+  -docker inspect blissful_hopper
+  
+  
+Docker Images::
+->How to create my own image?
+Dockerfile
+FROM Ubuntu
+RUN apt-get update
+RUN apt-get install python
+RUN pip install flask
+RUN pip install flask-mysql
+COPY . /opt/source-code
+ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
+
+1. OS - Ubuntu
+2. Update apt repo
+3. Install dependencies using apt
+4. Install Python dependencies using pip
+5. Copy source code to /opt folde
+6. Run the web server using “flask” command
+
+docker build Dockerfile –t john/my-custom-app
+docker push john/my-custom-app	--	docker registry
+
+
+
+Dockerfile::
+INSRUCTIONS      ARGUMENT
+FROM             Ubuntu					       --	Start from a base OS or another image
+RUN              apt-get update
+RUN              apt-get install python
+RUN              pip install flask				       --	Install all dependencies
+RUN              pip install flask-mysql
+COPY             . /opt/source-code				       --	Copy source code
+ENTRYPOINT       FLASK_APP=/opt/source-code/app.py flask run	       --	Specify entrypoint
+
+
+
+Layered architecture::
+Layer 1. Base Ubuntu Layer	--	120MB
+Layer 2. Changes in apt packages	--	306MB
+Layer 3. Changes in pip packages	--	6.3MB
+Layer 4. Source code	--	229B
+Layer 5. Update Entrypoint with “flask” command	--	0B	

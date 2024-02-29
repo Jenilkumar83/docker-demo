@@ -1,0 +1,24 @@
+Docker run::
+
+->Run – tag
+  -docker run redis
+  -docker run redis:4.0(TAG)
+
+->RUN - STDIN
+  -docker run –i kodekloud/simple-prompt-docker
+  -docker run –it kodekloud/simple-prompt-docker
+ 
+->Run – PORT mapping
+  -docker run –p 80:5000 kodekloud/simple-webapp
+  -docker run –p 8001:5000 kodekloud/simple-webapp
+  -docker run –p 8306:3306 mysql
+  -docker run –p 8306:3306 mysql
+  
+->RUN – Volume mapping
+  -docker run –v /opt/datadir:/var/lib/mysql mysql
+ 
+->Inspect Container
+  -docker inspect blissful_hopper
+  
+->Container Logs
+  -docker logs blissful_hopper

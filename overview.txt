@@ -1,0 +1,15 @@
+Why do you need docker?
+-Compatibility/Dependency
+-Long setup time
+-Different Dev/Test/Prod environments
+
+What can it do?
+-Containerize Applications
+-Run each service with its own dependencies in separate containers
+
+Containers & Virtual Machines
+Container vs image
+
+Docker Editions::
+-Community Edition, ex:Linux, MAC, Windows, Cloud
+-Enterprise Edition

@@ -1,0 +1,48 @@
+Docker engine::
+-Docker CLI		Laptop
+    ^
+-REST API	>	
+    ^
+-Docker Deamon		docker –H=remote-docker-engine:2375
+			docker –H=10.123.2.1:2375 run nginx
+			
+containerization:
+-Namespace(Centre)
+
+-Network
+-Process ID
+-Unix Timesharing
+-Mount
+-InterProcess
+
+Namespace - PID
+cgroups:
+-docker run --cpus=.5 ubuntu
+-docker run --memory=100m ubuntu
+
+Container Orchestration::
+-docker service create -–replicas=100 nodejs
+
+Docker swarm
+Docker service
+
+Kubernetes::
+-kubectl rolling-update my-web-server --rollback
+-kubectl rolling-update my-web-server --image=web-server:2
+-kubectl scale -–replicas=2000 my-web-server
+-kubectl run -–replicas=1000 my-web-server
+
+Nodes (Minions)
+
+Cluster
+
+Master
+
+Components
+
+Master vs Worker Nodes
+
+kubectl:
+-kubectl run hello-minikube
+-kubectl cluster-info
+-kubectl get nodes
