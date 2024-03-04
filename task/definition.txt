@@ -1,0 +1,4 @@
+Different Three network
+Three container like A B C
+All container should communicate with each other
+And write dockerfile 

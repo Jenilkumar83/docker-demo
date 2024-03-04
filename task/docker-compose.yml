@@ -1,0 +1,41 @@
+version: '3'
+
+networks:
+  net_dev:
+    driver: bridge
+
+  net_uat:
+    driver: bridge
+
+  net_prod:
+    driver: bridge
+    
+services:
+  container_1:
+    image: alpine
+    networks:
+      - net_dev
+      - net_uat
+      - net_prod
+    command: ["sleep", "infinity"]
+    container_name: a_alpine
+
+  container_2:
+    image: alpine
+    networks:
+      - net_uat
+      - net_dev
+      - net_prod
+    command: ["sleep", "infinity"]
+    container_name: b_alpine
+
+  container_3:
+    image: alpine
+    networks:
+      - net_prod
+      - net_uat
+      - net_dev
+    command: ["sleep", "infinity"]
+    container_name: c_alpine
+
+
